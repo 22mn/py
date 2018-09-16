@@ -41,12 +41,48 @@ def debug(func):
 		return value
 	return wrapper_debug
 
+def slow_down(func):
+	"""Sleep 1 second before calling the function"""
+	@functools.wraps(func)
+	def wrapper_slow_down(*args, **kwargs):
+		time.sleep(1)
+		return func(*args,**kwargs)
+	return wrapper_slow_down
 
+class Circle:
+	def __init__(self, radius):
+		self._radius = radius
 
+	@property
+	def radius(self):
+		"""Get value of radius"""
+		return self._radius
 
+	@radius.setter
+	def radius(self,value):
+		"""Set radius, raise error if negative"""
+		if value >= 0:
+			self._radius = value
+		else:
+			raise ValueError("Must be Positive Value!")
+	@property
+	def area(self):
+		"""Calculate area inside circle"""
+		return self.pi() * self._radius ** 2
+	
+	def cylinder_volume(self, height):
+		"""Calculate volume of cylinder with circle as base"""
+		return self.area * height
 
+	@classmethod
+	def unit_circle(cls):
+		"""Factory method creating a circle with radius 1"""
+		return cls(1)
 
-
+	@staticmethod
+	def pi():
+		"""Value of pi 3.14159... same with math.pi"""
+		return 3.14159
 
 
 
