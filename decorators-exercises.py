@@ -1,6 +1,7 @@
 import math
 from decorators import Circle
-from decorators import do_twice,timer,debug, slow_down
+from decorators import (do_twice,timer,
+	debug, slow_down,repeat)
 
 
 @do_twice
@@ -44,5 +45,22 @@ def countdown(num):
 		countdown(num-1)
 #countdown(3)
 
-c = Circle(5)
+
+class TimeWaster:
+	@debug
+	def __init__(self, max_num):
+		self.max_num = max_num
+	@timer
+	def waste_time(self, num_times):
+		for i in range(num_times):
+			sum([i**2 for i in range(self.max_num)])
+
+"""
+repeat = repeat(num_times=3)
+greet = repeat(greet)
+"""
+
+#@repeat(num_times=3)
+def greet(name):
+	print("Hello %s"%name)
 

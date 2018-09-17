@@ -4,8 +4,8 @@ import functools,time
 def do_twice(func):
 
 	# protect func identity 
-	functools.wraps(func)
-
+	
+	@functools.wraps(func)
 	def wrapper_do_twice(*args,**kwargs):
 		func(*args,**kwargs)
 		return func(*args,**kwargs)
@@ -48,6 +48,16 @@ def slow_down(func):
 		time.sleep(1)
 		return func(*args,**kwargs)
 	return wrapper_slow_down
+
+def repeat(num_times=1):
+	def deco_repeat(func):
+		@functools.wraps(func)
+		def wrapper_repeat(*args,**kwargs):
+			for i in range(num_times):
+				value = func(*args, **kwargs)
+			return value
+		return wrapper_repeat
+	return deco_repeat
 
 class Circle:
 	def __init__(self, radius):
