@@ -49,7 +49,7 @@ def slow_down(func):
 		return func(*args,**kwargs)
 	return wrapper_slow_down
 
-def repeat(num_times=1):
+def repeat(_func=None,*,num_times=2):
 	def deco_repeat(func):
 		@functools.wraps(func)
 		def wrapper_repeat(*args,**kwargs):
@@ -57,7 +57,12 @@ def repeat(num_times=1):
 				value = func(*args, **kwargs)
 			return value
 		return wrapper_repeat
-	return deco_repeat
+	if _func is None:
+		print("if: %s" %_func)
+		return deco_repeat
+	else:
+		print("else: %s "%_func)
+		return deco_repeat(_func)
 
 class Circle:
 	def __init__(self, radius):

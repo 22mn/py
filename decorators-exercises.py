@@ -60,7 +60,7 @@ repeat = repeat(num_times=3)
 greet = repeat(greet)
 """
 
-#@repeat(num_times=3)
+@repeat
 def greet(name):
 	print("Hello %s"%name)
 
