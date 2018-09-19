@@ -51,7 +51,8 @@ def slow_down(func):
 
 def repeat(_func=None,*,num_times=2):
 	def deco_repeat(func):
-		@functools.wraps(func)
+		print("deco: %s"%func)
+		#@functools.wraps(func)
 		def wrapper_repeat(*args,**kwargs):
 			for i in range(num_times):
 				value = func(*args, **kwargs)

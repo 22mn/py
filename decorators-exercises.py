@@ -64,3 +64,8 @@ greet = repeat(greet)
 def greet(name):
 	print("Hello %s"%name)
 
+@repeat(num_times=5)
+def greeting(name):
+	print("Hey %s"%name)
+
+
