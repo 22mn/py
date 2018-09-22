@@ -41,13 +41,21 @@ def debug(func):
 		return value
 	return wrapper_debug
 
-def slow_down(func):
-	"""Sleep 1 second before calling the function"""
-	@functools.wraps(func)
-	def wrapper_slow_down(*args, **kwargs):
-		time.sleep(1)
-		return func(*args,**kwargs)
-	return wrapper_slow_down
+def slow_down(_func=None,*,rate=1):
+	"""Sleep given amount of seconds before calling the function"""
+	
+	def decorator_slow_down(func):
+		@functools.wraps(func)
+		def wrapper_slow_down(*args, **kwargs):
+			time.sleep(rate)
+			return func(*args,**kwargs)
+		return wrapper_slow_down
+
+	if _func is None:
+		return decorator_slow_down
+	else:
+		return decorator_slow_down(_func)
+
 
 def repeat(_func=None,*,num_times=2):
 	def deco_repeat(func):
@@ -74,6 +82,17 @@ def count_calls(func):
 		return func(*args,**kwargs)
 	wrapper_count_calls.num_calls = 0
 	return wrapper_count_calls
+
+
+def singleton(cls):
+	"""Make a class a singleton class(one instance)"""
+	@functools.wraps(cls)
+	def wrapper_singleton(*args,**kwargs):
+		if not wrapper_singleton.instance:
+			wrapper_singleton.instance = cls(*args, **kwargs)
+		return wrapper_singleton.instance
+	wrapper_singleton.instance = None
+	return wrapper_singleton
 
 
 class CountCalls:

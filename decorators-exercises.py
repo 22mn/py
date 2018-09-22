@@ -35,7 +35,7 @@ def approximate_e(terms=18):
 #approximate_e(10)
 
 
-@slow_down
+@slow_down(rate=2)
 def countdown(num):
 	if num < 1:
 		print("Lift off!")
@@ -73,3 +73,7 @@ def hola():
 @CountCalls
 def hello():
 	print("Hello")
+
+@singleton
+class TheOne:
+	pass
