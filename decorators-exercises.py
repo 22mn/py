@@ -1,7 +1,6 @@
 import math
 from decorators import Circle
-from decorators import (do_twice,timer,
-	debug, slow_down,repeat)
+from decorators import *
 
 
 @do_twice
@@ -68,4 +67,9 @@ def greet(name):
 def greeting(name):
 	print("Hey %s"%name)
 
-
+@count_calls
+def hola():
+	print("Hola")
+@CountCalls
+def hello():
+	print("Hello")
