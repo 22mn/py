@@ -1,4 +1,4 @@
-import math
+import math,functools
 from decorators import Circle
 from decorators import *
 
@@ -77,3 +77,31 @@ def hello():
 @singleton
 class TheOne:
 	pass
+@count_calls
+def factorial(n):
+	print("factorial has been called with n = "+str(n))
+	if n == 1:
+		return 1
+	else:
+		res = n * factorial(n-1)
+		print(f"Intermediate result for {n} * factorial({n-1}) : {res}")
+		return res
+
+@functools.lru_cache(maxsize=5)
+@count_calls
+def fib(n):
+	print("fib has been called with n = "+str(n))
+	if n == 0:
+		return 0
+	elif n == 1:
+		return 1
+	else:
+		res = fib(n-1) + fib(n-2)
+		print(f"Intermediate result for fib({n}-1) + fib({n}-2) : {res}")
+		return res
+@cache
+@count_calls
+def fibo(n):
+	if n <= 1:
+		return n
+	return fibo(n-1) + fibo(n-2)
