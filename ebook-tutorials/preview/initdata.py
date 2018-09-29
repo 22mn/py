@@ -3,7 +3,7 @@
 
 # records
 bob = {"name": "Bob Smith", "age": 22, "pay": 50000, "job": "dev"}
-sue = {"name": "Sue Jones", "age": 21, "pay": 45000, "job": "ana"}
+sue = {"name": "Sue Jones", "age": 21, "pay": 45000, "job": "alc"}
 tom = {"name": "Tom", "age": 50, "pay": 60000, "job": "mgr"}
 
 

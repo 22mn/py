@@ -7,11 +7,11 @@ endrec.
 sue
 name=>'Sue Jones'
 age=>21
-pay=>45000
-job=>'ana'
+pay=>50000
+job=>'alc'
 endrec.
 tom
-name=>'Tom'
+name=>'Tom Hook'
 age=>50
 pay=>60000
 job=>'mgr'
