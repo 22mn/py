@@ -18,8 +18,8 @@ class Person:
 		return self.pay
 	
 	def __str__(self):
-		return "<%s => %s: %s, %s>" %(
-			self.__class__.__name__, self.name ,self.job, self.pay)
+		return "<%s => %s[%s]: %s, %s>" %(
+			self.__class__.__name__, self.name, self.age ,self.job, self.pay)
 
 class Manager(Person):
 	"""
