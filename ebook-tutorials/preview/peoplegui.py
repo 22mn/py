@@ -9,6 +9,8 @@ import shelve
 
 shelvename = "class-shelve"
 fieldnames = ("name","age","job","pay")
+db=shelve.open(shelvename)
+
 
 def makeWidgets():
 	global entries
@@ -23,12 +25,35 @@ def makeWidgets():
 		lab.grid(row=ix,column=0)
 		ent.grid(row=ix,column=1)
 		entries[label] = ent
-	Button(window, text="Fetch").pack(side=LEFT)
-	Button(window, text="Update").pack(side=LEFT)
-	Button(window, text="Quit").pack(side=LEFT)
+	Button(window, text="Fetch" ,command=fetchRecord).pack(side=LEFT)
+	Button(window, text="Update" ,command=updateRecord).pack(side=LEFT)
+	Button(window, text="Quit" ,command=window.quit).pack(side=RIGHT)
 	return window
 
-db=shelve.open(shelvename)
+
+def fetchRecord():
+	key = entries["key"].get()
+	try:
+		record = db[key]
+	except KeyError:
+		showerror(title="Error Message", message="No such key!")
+	else:
+		for field in fieldnames:
+			entries[field].delete(0,END)
+			entries[field].insert(0, repr(getattr(record,field)))
+
+def updateRecord():
+	key = entries["key"].get()
+	if key in db:
+		record = db[key]
+	else:
+		from person_alternative import Person
+		record = Person(name="?", age="?")
+	for field in fieldnames:
+		setattr(record, field, eval(entries[field].get()))
+	db[key]=record
+
+
 window = makeWidgets()
 window.mainloop()
 db.close()
