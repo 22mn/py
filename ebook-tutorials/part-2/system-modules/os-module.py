@@ -8,6 +8,7 @@ path = r"start.py"
 os.environ
 
 # to run program, excepted a string command line 
+# or "type start.py"
 os.system("python start.py")
 
 # returns process ID (a unique system-defined identifier
@@ -35,6 +36,11 @@ os.path.basename(path)
 
 # change current directory
 #os.chdir(r"path")
+
+# absolute path, empty string means the cwd
+# "." relative path, ".." backward directory
+os.path.abspath(""), os.path.abspath(".")
+
 
 # open a file with default program
 #os.popen(r"filepath")
