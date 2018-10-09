@@ -7,6 +7,28 @@ path = r"start.py"
 # returns a dictionary including environmental variables paths
 os.environ
 
+# spawns a new child process on Unix-like systems
+os.fork
+
+# communicates between programs
+os.pipe
+
+# starts new programs
+os.execlp
+
+# starts new programs with lower-level
+os.spawnv
+
+# opens a low-level descriptor-based file
+os.open
+
+# creates a new named pipe
+os.mkfifo
+
+# fetches low-level file information
+os.start
+
+
 # to run program, excepted a string command line 
 # or "type start.py"
 os.system("python start.py")
@@ -33,17 +55,25 @@ os.path.dirname(path)
 # returns the last item from the path (usually a file)
 os.path.basename(path)
 
+# creates a new directory
+os.mkdir
+
+# deletes a file by its pathname
+os.remove
+
+# entire directory tree
+os.walk
 
 # change current directory
-#os.chdir(r"path")
+#os.chdir(r"directory")
 
 # absolute path, empty string means the cwd
 # "." relative path, ".." backward directory
 os.path.abspath(""), os.path.abspath(".")
 
-
 # open a file with default program
-#os.popen(r"filepath")
+os.popen(path)
+os.startfile(path)
 
 # Execute an executable path with arguments, replacing current process.
 #os.execv(r"filepath", (args))
