@@ -8,7 +8,7 @@ path = r"start.py"
 os.environ
 
 # spawns a new child process on Unix-like systems
-os.fork
+#os.fork
 
 # communicates between programs
 os.pipe
@@ -23,11 +23,13 @@ os.spawnv
 os.open
 
 # creates a new named pipe
-os.mkfifo
+#os.mkfifo
 
 # fetches low-level file information
 os.start
 
+# built-in shell cmd
+os.popen("dir /B *.py")
 
 # to run program, excepted a string command line 
 # or "type start.py"
