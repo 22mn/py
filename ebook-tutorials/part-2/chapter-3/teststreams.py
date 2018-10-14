@@ -7,7 +7,7 @@ def interact():
 			reply = input("Enter a number>")
 			num = int(reply)
 			print("%d squared is %d" %(num,num**2))
-		except EOFError:
+		except:
 			break
 
 	print("Bye")

@@ -31,13 +31,13 @@ class Input:
 			res, self.text = self.text[:eoln+1], self.text[eoln+1:]
 		return res
 
-	def redirect(function, pargs, kargs, input):
-		savestreams = sys.stdin, sys.stdout
-		sys.stdin = Input(input)
-		sys.stdout = Output()
-		try:
-			result = function(*pargs, **kargs)
-			output = sys.stdout.text
-		finally:
-			sys.stdin, sys.stdout = savestreams
-		return (result, output)
+def redirect(function, pargs, kargs, input):
+	savestreams = sys.stdin, sys.stdout
+	sys.stdin = Input(input)
+	sys.stdout = Output()
+	try:
+		result = function(*pargs, **kargs)
+		output = sys.stdout.text
+	finally:
+		sys.stdin, sys.stdout = savestreams
+	return (result, output)
