@@ -5,9 +5,9 @@ def greeting():
 
 win=Frame()
 
-win.pack()
+win.pack(side=TOP, expand=YES, fill=BOTH)
+Button(win, text="Hello", command=greeting).pack(side=LEFT,anchor=N,fill=Y)
 Label(win, text="Hello container world").pack(side=TOP)
-Button(win, text="Hello", command=greeting).pack(side=LEFT)
-Button(win, text="Quit", command=win.quit).pack(side=RIGHT)
+Button(win, text="Quit", command=win.quit).pack(side=RIGHT,fill=X,expand=YES)
 
 win.mainloop()
