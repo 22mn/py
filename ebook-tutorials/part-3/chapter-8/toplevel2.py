@@ -17,6 +17,7 @@ trees = [("The Larch!",		   	"light blue"),
 for (tree, color) in trees:
 	win = Toplevel(root)
 	win.title("Sing...")
+	# prevent from closing with X
 	win.protocol("WM_DELETE_WINDOW", lambda:None)
 	win.iconbitmap("py_icon.ico")
 
