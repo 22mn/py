@@ -9,7 +9,7 @@ lab.pack(side=TOP)
 ent.pack(side=TOP, fill=X)
 
 def change(event):
-	lab.config(text=ent.get())
+	lab.config(text=var.get())
 
 ent.bind("<KeyRelease>", change)
 root.mainloop()
