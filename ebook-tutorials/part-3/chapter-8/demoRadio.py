@@ -15,8 +15,9 @@ class Demo(Frame):
 		self.var.set(key)
 		Button(self, text="State", command=self.report).pack(fill=X)
 		Quitter(self).pack(fill=X)
-	def onPress(self):self.var.get()
-		pick = 
+	
+	def onPress(self):
+		pick = self.var.get()
 		print("you pressed", pick)
 		print("result:", demos[pick]())
 

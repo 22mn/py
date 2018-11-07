@@ -30,5 +30,4 @@ class Demo(Frame):
 		print(self.var.get())
 
 if __name__ == '__main__':
-	print(list(demos.keys()))
 	Demo().mainloop()
