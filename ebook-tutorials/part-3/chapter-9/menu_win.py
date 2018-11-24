@@ -8,7 +8,7 @@ def makemenu(win):
 	top = Menu(win)    # parent menu 
 	win.config(menu=top)  # toplevel cross link 
 	file = Menu(top)    # child menu
-	file.add_command(label="New... ", command=notdone, underline=0)
+	file.add_command(label="New... ", command=notdone, underline=1)
 	file.add_command(label="Open... ", command=notdone, underline=0)
 	file.add_command(label="Quit... ", command=win.destroy, underline=0)
 	top.add_cascade(label="File", menu=file, underline=0)
