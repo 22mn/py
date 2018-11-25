@@ -3,7 +3,7 @@ from tkinter import *
 
 root = Tk()
 for i in range(3):
-	frm = Frame()
+	frm = Frame(root)
 	menu = makemenu(frm)
 	menu.config(bd=2, relief=RAISED)
 	frm.pack(expand=YES, fill=BOTH)
