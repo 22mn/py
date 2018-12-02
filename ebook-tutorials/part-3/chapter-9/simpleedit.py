@@ -10,7 +10,7 @@ from quitter import Quitter
 from tkinter import *
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import asksaveasfilename
-from ScrolledText import ScrolledText
+from scrolledText import ScrolledText
 
 class SimpleEditor(ScrolledText):
 	def __init__(self, parent=None, file=None):
@@ -47,10 +47,15 @@ class SimpleEditor(ScrolledText):
 		target = askstring("SimpleEditor", "Search String?")
 		if target:
 			where = self.text.search(target, INSERT, END)
-            if where:
-                print(where)
-                pasteit = where + ("+%dc" %len(target))
-                self.text
+			if where:
+				print(where)
+				pasteit = where + ("+%dc" % len(target))
+				self.text.tag_remove(SEL, "1.0", END)
+				self.text.tag_add(SEL, where, pasteit)
+				self.text.mark_set(INSERT, pasteit)
+				self.text.see(INSERT)
+				self.text.focus()
 
 
-
+if __name__ == '__main__':
+	SimpleEditor(file="jack.txt").mainloop()
