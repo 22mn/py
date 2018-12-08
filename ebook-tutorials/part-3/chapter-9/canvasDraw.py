@@ -48,3 +48,4 @@ class CanvasEventsDemo:
 if __name__ == '__main__':
 	CanvasEventsDemo()
 	mainloop()
+	
