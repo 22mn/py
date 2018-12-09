@@ -11,7 +11,7 @@ def gridbox(root):
 		ent = Entry(root,bg=color, relief=SUNKEN, width=50)
 		lab.grid(row=row, column=0, sticky=NSEW)
 		ent.grid(row=row, column=1, sticky=NSEW)
-		ent.insert(0,"Starman, waiting in the sky")
+		ent.insert(0,"There's a star..man, waiting in the sky")
 		root.rowconfigure(row, weight=1)
 		row += 1
 	root.columnconfigure(0, weight=1)
