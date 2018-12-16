@@ -67,7 +67,7 @@ class SumGrid(Frame):
 					col.grid_forget()
 
 			for s in self.sums:
-				sum.grid_forget()
+				s.grid_forget()
 
 			filelines = open(file, "r").readlines()
 			self.numrow = len(filelines)
