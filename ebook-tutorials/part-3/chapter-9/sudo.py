@@ -25,7 +25,7 @@ def hola(*args):
 	value = ValueDict[str(cellnum)].get()
 	
 	# check digit
-	if value.isdigit() and value != "0" and len(value)==1:
+	if value.isdigit() and value != "0":
 		# allow only one digit 
 		ValueDict[str(cellnum)].set(value[:1])
 		# cursor blink offtime after input
@@ -38,17 +38,16 @@ def hola(*args):
 
 		print(" cell no: ", cellnum )
 		print(" input value: ", value)
-	else:
-		ValueDict[str(cellnum)].set("")
-		print("Must be digit!")
 count = 0
 
 allentries = []
 
 
 def hello(args):
-	print("hello")
-	print(args.widget)
+	print("hello function")
+	print(args.widget.get())
+	print(args.char)
+
 
 for row in range(rows):
 	for column in range(columns):
@@ -89,7 +88,7 @@ def undo():
 		print("Not input yet!")
 
 undoButton = Button(frame, text="Undo", command=undo)
-undoButton.grid(sticky=NSEW)
+undoButton.grid(row=rows+1 , column=1, sticky=NSEW,columnspan=2, pady=5)
 
 
 def redo():
@@ -103,6 +102,6 @@ def redo():
 		
 
 redoButton = Button(frame, text="Redo", command=redo)
-redoButton.grid(sticky=NSEW)
+redoButton.grid(row=rows+1, column=6, sticky=NSEW, columnspan=2, pady=5)
 
 root.mainloop()
