@@ -1,3 +1,8 @@
+
+
+#***NOTE*** 
+#(ENTRY IS NOT USING ANYMORE) 
+#(DRAG AND DROP MAY BE)
 from tkinter import *
 
 rows, columns = 9,9
