@@ -115,7 +115,7 @@ class QuietPortableLauncher(PortableLauncher):
  def announce(self, text):
   pass
 def selftest():
- file = 'echo.py'
+ file = 'thread1.py'
  input('default mode...')
  launcher = PortableLauncher(file, file)
  launcher() # no block
