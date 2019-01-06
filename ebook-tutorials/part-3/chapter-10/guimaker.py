@@ -30,7 +30,7 @@ class GuiMaker(Frame):
 		menubar = Frame(self, relief=RAISED, bd=2)
 		menubar.pack(side=TOP, fill=X)
 
-		for (name, key, items) in self.menuBar:
+		for (name , key, items) in self.menuBar:
 			mbutton = Menubutton(menubar, text=name, underline=key)
 			mbutton.pack(side=LEFT)
 			pulldown = Menu(mbutton)

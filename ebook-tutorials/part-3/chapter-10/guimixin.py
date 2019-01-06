@@ -5,7 +5,7 @@ with a Frame (or a subclass derived from Frame) for its quit method
 """
 import sys
 sys.path.append("../chapter-9/")
-sys.path.append("../../part-2/chapter-5")
+#sys.path.append("../../part-2/chapter-5")
 
 from tkinter import *
 from tkinter.messagebox import *

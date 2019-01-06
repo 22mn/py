@@ -11,6 +11,8 @@ sys.path.append(r"newpath")
 # {"mod-name":"mod-path info",..:..,}
 sys.modules
 
+# get absolute executable path
+sys.executable
 
 # exception details when exception trigger
 # return a tuple of (ErrorType, ErrorMessage, Traceback-Info)
