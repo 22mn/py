@@ -17,3 +17,4 @@ def unpack(ifile, prefix="new-"):
 
 if __name__ == '__main__':
 	unpack(sys.argv[1])
+
