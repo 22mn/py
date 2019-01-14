@@ -29,5 +29,5 @@ def runPackDialog():
 if __name__ == '__main__':
 	root = Tk()
 	Button(root, text="popup", command=runPackDialog).pack(fill=X)
-	Button(root, text="bye", command=root.quit).pack(fill=X)
+	Button(root, text="bye", command=root.destroy).pack(fill=X)
 	root.mainloop()
